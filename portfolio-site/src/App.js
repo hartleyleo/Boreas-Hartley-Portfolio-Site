@@ -1,6 +1,8 @@
 import './App.css';
 
 import Navbar from './Components/Navbar';
+import Info from './Components/Info';
+import Carousel from './Components/Carousel';
 
 function App() {
   return (
@@ -8,6 +10,8 @@ function App() {
       <header className="App-header">
         
         <Navbar />
+        <Info />
+        <Carousel />
 
       </header>
     </div>
