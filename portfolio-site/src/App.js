@@ -12,6 +12,7 @@ function App() {
         <Navbar />
         <Info />
         <Carousel />
+        <img alt="instagram post for website" src="Media/Images/IMG_4752.png" />
 
       </header>
     </div>
