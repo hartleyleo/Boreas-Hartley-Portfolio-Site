@@ -11,7 +11,7 @@ const TabContent = ({ image }) => {
 
 }
 
-const Carousel = ({ image }) => {
+const GalleryCarousel = ({ image }) => {
 
     const [activeTab, setActiveTab] = useState(1);
   
@@ -62,4 +62,4 @@ const Carousel = ({ image }) => {
     );
   };
   
-  export default Carousel;
+  export default GalleryCarousel;

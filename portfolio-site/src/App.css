@@ -87,6 +87,7 @@
 .carousel-container {
   width: 100%;
   margin: 20px auto;
+  color:bisque;
 }
 
 .tab {
@@ -119,4 +120,9 @@
 .Next-Button:hover {
   background-color: #622d7f;
   transform: scale(1.05);
+}
+
+.carousel-image {
+  max-width: 300px;
+  max-height: 300px;
 }

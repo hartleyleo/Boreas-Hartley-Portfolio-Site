@@ -1,6 +1,12 @@
 // import React, { useState } from 'react';
 
-const Navbar = () => {
+import GalleryCarousel from "./GalleryCarousel";
+
+const Navbar = ({changePageStateFunction}) => {
+
+    const setPageStateGallery = (changePageStateFunction) => {
+        changePageStateFunction(GalleryCarousel);
+    }
 
     return (
         <div class="navbar-container">
@@ -8,7 +14,7 @@ const Navbar = () => {
                 <div>Boreas Hartley</div>
             </div>
             <div class="navbar-button-container">
-                <button class="nav-button">Gallery</button>
+                <button class="nav-button" onClick={setPageStateGallery(changePageStateFunction)}>Gallery</button>
                 <button class="nav-button">Commissions</button>
             </div>
         </div>
