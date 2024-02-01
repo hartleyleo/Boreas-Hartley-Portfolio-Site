@@ -30,6 +30,12 @@
   color: beige;
 }
 
+.navbar-title-container:hover {
+  /* animation: danceAnimation 0.4s ease infinite; */
+  animation: danceAnimation 1s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  cursor: pointer;
+}
+
 
 .navbar-button-container {
   display: flex;
@@ -88,6 +94,10 @@
   width: 100%;
   margin: 20px auto;
   color:bisque;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .tab {
@@ -125,4 +135,35 @@
 .carousel-image {
   max-width: 300px;
   max-height: 300px;
+}
+
+.pages {
+  align-items: center;
+  width: 100%;
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+@keyframes danceAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

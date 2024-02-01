@@ -6,7 +6,7 @@ import instagramImage from './Media/Images/IMG_4752.png';
 const Home = () => {
 
     return (
-        <div>
+        <div className="home-page">
             <Info />
             <Carousel image={instagramImage}/>
         </div>

@@ -1,33 +1,39 @@
-import './App.css';
+import './Stylesheets/App.css';
 
 import React, { useState } from 'react';
 
 import Home from './Home.js';
-import Gallery from './Gallery.js';
 import GalleryCarousel from './Components/GalleryCarousel.js';
 
-import Navbar from './Components/Navbar';
 
 function App() {
 
-  const [currentPageState, setCurrentPageState] = useState(Home);
+  const [pageState, setPageState] = useState(0);
 
-  const setCurrentPageStateHelper = (state) => {
-    setCurrentPageState(state);
+  const setPageStateHelper = (state) => {
+    setPageState(state);
   }
 
   return (
     <div className="App">
-      <header className="App-header">
+      <div className="App-header">
         
-        <Navbar changePageStateFunction={setCurrentPageStateHelper}/>
+        <div className="navbar-container">
+          <div className="navbar-title-container" onClick={() => setPageStateHelper(0)}>
+            <div>Boreas Hartley</div>
+          </div>
+          <div className="navbar-button-container">
+            <button className="nav-button" onClick={() => setPageStateHelper(1)}>Gallery</button>
+            <button className="nav-button">Commissions</button>
+          </div>
+        </div>
 
-        {currentPageState == Home && <Home />}
-        {currentPageState == GalleryCarousel && <GalleryCarousel />}
-        
-        
+        <div className="pages">
+          {pageState === 0 && (<Home />)}
+          {pageState === 1 && (<GalleryCarousel />)}
+        </div>
 
-      </header>
+      </div>
     </div>
   );
 }

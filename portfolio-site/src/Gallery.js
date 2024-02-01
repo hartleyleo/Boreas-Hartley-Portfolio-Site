@@ -6,7 +6,6 @@ const Home = () => {
 
     return (
         <div>
-            <Info />
             <Carousel image={instagramImage}/>
         </div>
     );
