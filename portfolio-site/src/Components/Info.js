@@ -1,16 +1,10 @@
-// import React, { useState } from 'react';
-
 const Info = () => {
 
     return (
-        <div class="info-container">
-            <div class="info-title-container">
-                <div>About me</div>
-            </div>
-            <br />
-            <div class="info-body-container">
-                <div class="info-body-title">INFO</div>
-                <div class="info-body-text">Using the examples in the tutorial as a reference, describe a real-life example that is similar to  setting up file directories. Your explanation should include a root directory and subdirectories as well as how to access files in each of them.</div>
+        <div className="info-container">
+            <div className="info-body-container">
+                <h2 className="info-body-title">About me</h2>
+                <div className="info-body-text">This site will be used for ordering commissions, as well as looking over their artwork and overall style they use for their designs. This page is most likely going to slowly turn into a page that shows their tattoo work once they get into that field.</div>
             </div>
         </div>
     );

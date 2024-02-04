@@ -22,6 +22,17 @@
   top: 0;
 }
 
+.footer-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #140b19;
+  padding: 3px;
+  text-align: center;
+  color: beige;
+  font-size: small;
+}
+
 .navbar-title-container {
   margin-right: 10px;
   margin-left: 2%;
@@ -36,6 +47,10 @@
   cursor: pointer;
 }
 
+.navbar-logo {
+  max-width: 32px;
+  max-height: 32px;
+}
 
 .navbar-button-container {
   display: flex;
@@ -135,6 +150,8 @@
 .carousel-image {
   max-width: 300px;
   max-height: 300px;
+  float: center;
+  margin: 2px;
 }
 
 .pages {
@@ -148,6 +165,10 @@
   align-items: center;
   justify-content: center;
   height: 100%;
+}
+
+h2 {
+  font-weight: 100;
 }
 
 @keyframes danceAnimation {
