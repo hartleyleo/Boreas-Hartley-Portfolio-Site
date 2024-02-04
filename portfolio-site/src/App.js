@@ -25,7 +25,7 @@ function App() {
           <div className="navbar-title-container" onClick={() => setPageStateHelper(0)}>
             <div>Boreas Hartley</div>
           </div>
-          <div><img alt="logo for website" src={logo} /></div>
+          <div className="navbar-logo"><img alt="logo for website" src={logo} /></div>
           <div className="navbar-button-container">
             <button className="nav-button" onClick={() => setPageStateHelper(1)}>Gallery</button>
             <button className="nav-button">Commissions</button>
@@ -35,6 +35,10 @@ function App() {
         <div className="pages">
           {pageState === 0 && (<Home />)}
           {pageState === 1 && (<GalleryCarousel image={instagramImage} />)}
+        </div>
+
+        <div className="footer-container">
+          <div>Authored by: Leon Hartley hartleyleo@uri.edu</div>
         </div>
 
       </div>
