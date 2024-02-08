@@ -42,7 +42,6 @@
 }
 
 .navbar-title-container:hover {
-  /* animation: danceAnimation 0.4s ease infinite; */
   animation: danceAnimation 1s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
   cursor: pointer;
 }
@@ -150,7 +149,6 @@
 .carousel-image {
   max-width: 300px;
   max-height: 300px;
-  float: center;
   margin: 2px;
 }
 
