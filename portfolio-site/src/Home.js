@@ -1,7 +1,7 @@
 import Info from './Components/Info';
 import Carousel from './Components/Carousel';
 
-import instagramImage from './Media/Images/IMG_4752.png';
+import instagramImage from './Media/Images/00.JPG';
 
 const Home = () => {
 
