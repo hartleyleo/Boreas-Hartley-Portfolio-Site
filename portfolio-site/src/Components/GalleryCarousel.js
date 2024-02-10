@@ -25,8 +25,13 @@ const GalleryCarousel = ({ image }) => {
   const [activeTab, setActiveTab] = useState(1);
   const [averageRGB, setAverageRGB] = useState({ r: 255, g: 255, b: 255 });
 
+  // Function to handle tab change calls, takes in the direction in which to switch tabs
   const handleTabChange = (direction) => {
+
+    // Calls state change from useState declaration for activeTab
     setActiveTab((prevTab) => {
+
+      // Checks direction to switch to, also checks for exceeding min or max tab values and handles accordingly
       if (direction === 'left') {
         return prevTab > 1 ? prevTab - 1 : 5;
       } else {
