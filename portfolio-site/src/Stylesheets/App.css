@@ -114,6 +114,7 @@
   justify-content: center;
 }
 
+
 .tab {
   display: flex;
   align-items: center;
@@ -131,7 +132,7 @@
 .Next-Button {
   font-size: 16px;
   padding: 10px 20px;
-  margin: 0 10px;
+  margin: 0 30px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -168,6 +169,27 @@
 h2 {
   font-weight: 100;
 }
+
+.gallery-info-container {
+  width: 100%;
+  margin: 20px auto;
+  color:bisque;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-info-title {
+  font-weight: 100;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.gallery-info-description {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
 
 @keyframes danceAnimation {
   0% {
