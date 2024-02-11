@@ -5,7 +5,11 @@ import React, { useState } from 'react';
 
 import calculateAverageRGB from './JS/customFunctions';
 
-import imagePath from './Media/Images/02.JPG';
+import imagePath0 from './Media/Images/00.JPG';
+import imagePath1 from './Media/Images/01.JPG';
+import imagePath2 from './Media/Images/02.JPG';
+import imagePath3 from './Media/Images/03.JPG';
+import imagePath4 from './Media/Images/04.JPG';
 
 
 const GalleryPage = ({image}) => {
@@ -26,7 +30,7 @@ const GalleryPage = ({image}) => {
 
     return (
         <div className="gallery-page" >
-            <GalleryCarousel image={image}></GalleryCarousel>
+            <GalleryCarousel image={[imagePath0, imagePath1, imagePath2, imagePath3, imagePath4]}></GalleryCarousel>
         </div>
     );
 

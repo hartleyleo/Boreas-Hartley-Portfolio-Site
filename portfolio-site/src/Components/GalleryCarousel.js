@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import calculateAverageRGB from '../JS/customFunctions';
 
@@ -8,9 +8,9 @@ const TabContent = ({ image }) => {
       <div>
           <img id="image-carousel-image" className="carousel-image" alt="instagram post for website" src={image} />
           <div className="gallery-info-container">
-            <div className="gallery-info-title">
+            <h1 className="gallery-info-title">
               Title
-            </div>
+            </h1>
             <div className="gallery-info-description">
               Description
             </div>
@@ -40,15 +40,26 @@ const GalleryCarousel = ({ image }) => {
     });
   };
 
-  calculateAverageRGB(image).then(avgRGB => {
+  // Promise object follow up to get the values returned to the averageRGB
+  calculateAverageRGB(image[activeTab - 1]).then(avgRGB => {
       setAverageRGB(avgRGB);
   }).catch(error => {
       console.error('Error calculating average RGB:', error);
   });
 
+  // Styling used for the the background color of the tab
   let tabStyle = {
-      backgroundColor: `rgb(${averageRGB.r}, ${averageRGB.g}, ${averageRGB.b})`  
+    backgroundColor: `rgb(${averageRGB.r}, ${averageRGB.g}, ${averageRGB.b})`,
+    background: `linear-gradient(to left, rgba(${averageRGB.r}, ${averageRGB.g}, ${averageRGB.b}, 1), rgba(${averageRGB.r}, ${averageRGB.g}, ${averageRGB.b}, 0) 50%, rgba(${averageRGB.r}, ${averageRGB.g}, ${averageRGB.b}, 1))`,
   };
+
+  // let tabStyle = {
+  //   backgroundColor: `rgb(${averageRGB.r}, ${averageRGB.g}, ${averageRGB.b})`,
+  //   background: `linear-gradient(to left, rgba(${averageRGB.r}, ${averageRGB.g}, ${averageRGB.b}, 0), rgba(${averageRGB.r}, ${averageRGB.g}, ${averageRGB.b}, 1) 50%, rgba(${averageRGB.r}, ${averageRGB.g}, ${averageRGB.b}, 0))`
+  // };
+  
+  
+  
 
   return (
     <div className="carousel-container" style={tabStyle}>
@@ -58,27 +69,27 @@ const GalleryCarousel = ({ image }) => {
 
           {activeTab === 1 &&
               <div>
-                  <TabContent image={image}/> 1
+                  <TabContent image={image[0]}/> 1
               </div>
           }
           {activeTab === 2 &&
               <div>
-                  <TabContent image={image}/> 2
+                  <TabContent image={image[1]}/> 2
               </div>
           }
           {activeTab === 3 &&
               <div>
-                  <TabContent image={image}/> 3
+                  <TabContent image={image[2]}/> 3
               </div>
           }
           {activeTab === 4 &&
               <div>
-                  <TabContent image={image}/> 4
+                  <TabContent image={image[3]}/> 4
               </div>
           }
           {activeTab === 5 &&
               <div>
-                  <TabContent image={image}/> 4
+                  <TabContent image={image[4]}/> 4
               </div>
           }
         <button onClick={() => handleTabChange('right')} className="Next-Button">→</button>

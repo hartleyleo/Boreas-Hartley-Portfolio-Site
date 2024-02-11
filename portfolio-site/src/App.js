@@ -31,7 +31,7 @@ function App() {
       <div className="App-header">
         
         <div className="navbar-container">
-          <div className="navbar-title-container" onClick={() => setPageStateHelper(0)}>
+          <div className="navbar-title-container" onClick={() => { setPageStateHelper(0); setPageTitleHelper("Boreas") }}>
             <div>Boreas Hartley</div>
           </div>
           <div className="navbar-logo"><img alt="logo for website" src={logo} /></div>
