@@ -10,8 +10,10 @@ const Commissions = () => {
 
     return (
         <div>
-            
+            <button onClick={() => setLoginPopupOpen(true)}>erm</button>
             {pageView === 'user' && <UserCommission />}
+
+            {isLoginPopupOpen && <LoginPopup onClose={() => setLoginPopupOpen(false)}/>}
 
         </div>
     );

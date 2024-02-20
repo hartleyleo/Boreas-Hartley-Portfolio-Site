@@ -208,3 +208,12 @@ h2 {
     transform: translateY(0);
   }
 }
+
+.login-container {
+  background-color: #F7F3E3;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  text-align: center;
+  color: #2B2118;
+  z-index: 1001;
+}
