@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import UserCommission from './UserCommission';
+import OwnerCommission from './OwnerCommission';
 import LoginPopup from './Components/LoginPopup'
 
 const Commissions = () => {
@@ -9,19 +10,16 @@ const Commissions = () => {
     const [pageView, setPageView] = useState('user');
 
     return (
-        <div>
-            <button onClick={() => setLoginPopupOpen(true)}>erm</button>
+        <div className="overflow-handler">
+            <button className="access-login-button animated-button" onClick={() => setLoginPopupOpen(true)}>Login</button>
             {pageView === 'user' && <UserCommission />}
+            {pageView === 'owner' && <OwnerCommission />}
 
             {isLoginPopupOpen && 
             <LoginPopup 
                 onClose={() => setLoginPopupOpen(false)}
                 pageType={setPageView}
             />}
-
-            <div className="login-container">{pageView}</div>
-            
-
         </div>
     );
 

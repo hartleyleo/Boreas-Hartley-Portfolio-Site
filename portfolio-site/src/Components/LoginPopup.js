@@ -44,7 +44,7 @@ const LoginPopup = ({ onClose, pageType }) => {
 
     const handleLogin = () => {
         // Fake login info for now bc no database
-        if (username === 'boreas' && password === 'hartley') {
+        if (username === 'csc372' && password === 'hartley') {
             setPageTypeOwner();
             closePopup();
         }  else {
