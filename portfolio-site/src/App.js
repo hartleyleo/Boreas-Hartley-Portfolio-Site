@@ -7,6 +7,7 @@ import logo from './Media/Images/logo.png';
 
 import Home from './Home.js';
 import GalleryPage from './GalleryPage.js';
+import Commissions from './Commissions.js';
 
 
 function App() {
@@ -37,13 +38,14 @@ function App() {
           <div className="navbar-logo"><img alt="logo for website" src={logo} /></div>
           <div className="navbar-button-container">
             <button className="nav-button" onClick={() => { setPageStateHelper(1); setPageTitleHelper("Gallery") }}>Gallery</button>
-            <button className="nav-button">Commissions</button>
+            <button className="nav-button" onClick={() => { setPageStateHelper(2); setPageTitleHelper("Commisions") }}>Commissions</button>
           </div>
         </div>
 
         <div className="pages">
           {pageState === 0 && (<Home />)}
           {pageState === 1 && (<GalleryPage image={instagramImage} />)}
+          {pageState === 2 && (<Commissions />)}
         </div>
 
         <div className="footer-container">

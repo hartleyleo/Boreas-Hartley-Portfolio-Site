@@ -1,5 +1,12 @@
+/* 
+* --------------------------------------------------------------
+*                         GLOBAL STYLING
+* --------------------------------------------------------------
+*/
+
 .App {
   text-align: center;
+  overflow-y: auto;
 }
 
 .App-header {
@@ -9,6 +16,21 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow-y: auto;
+}
+
+.overflow-handler {
+  overflow-y: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.animated-button {
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.animated-button:hover {
+  transform: scale(1.05);
 }
 
 .navbar-container {
@@ -114,7 +136,6 @@
   justify-content: center;
 }
 
-
 .tab {
   display: flex;
   align-items: center;
@@ -207,4 +228,200 @@ h2 {
   100% {
     transform: translateY(0);
   }
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+  100% {
+    transform: rotate(-1deg);
+  }
+}
+
+/* 
+* --------------------------------------------------------------
+*                    COMMISSIONS PAGE STYLING
+* --------------------------------------------------------------
+*/
+
+.login-container {
+  background-color: #F7F3E3;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  text-align: center;
+  border-radius: 25px;
+  z-index: 1001;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.login-text {
+  padding: 10px;
+  color: #2B2118;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+
+.login-input {
+  border: none;
+  border-bottom: 2px solid black;
+  outline: none;
+  width: 200px;
+  margin: 10px;
+  background-color: #F7F3E3;
+}
+
+.login-button, .close-popup-button {
+  font-size: 16px;
+  padding: 5px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #411e56;
+  width: 100px;
+  color: bisque;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.login-button:hover,
+.close-popup-button:hover {
+  background-color: #622d7f;
+  transform: scale(1.05);
+}
+
+.wrong-password-message {
+  padding: 10px;
+  color: #c31919;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+}
+
+.owner {
+  color: beige;
+}
+
+.user {
+  color: beige;
+}
+
+.request-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list-item {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border: 1px solid #291931;
+  border-radius: 6px;
+  background-color: #1c1022;
+}
+
+.list-button {
+  font-size: 16px;
+  padding: 5px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 80px;
+}
+
+.info-commission {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #a87e13;
+  max-width: 30px;
+}
+
+.accept-commission {
+  background-color: #30780c;
+}
+
+.decline-commission {
+  background-color: #78150c;
+}
+
+.complete-commission {
+  background-color: #a87e13;
+}
+
+.finalize-commission {
+  background-color: #5f2d7c;
+}
+
+.info-commission:hover {
+  background-color: #d5a01a;
+}
+
+.accept-commission:hover {
+  background-color: #44a812;
+}
+
+.decline-commission:hover {
+  background-color: #a21d11;
+}
+
+.complete-commission:hover {
+  background-color: #d5a01a;
+}
+
+.finalize-commission:hover {
+  background-color: #9141bc;
+}
+
+.commission-lists {
+  max-width: 40%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #25162d;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.request-title {
+  width: 65%;
+}
+
+.list-button {
+  flex-grow: 1;
+}
+
+.access-login-button {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  font-size: 16px;
+  padding: 5px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #411e56;
+  width: 100px;
+  color: bisque;
+  z-index: 9999;
+}
+
+.access-login-button:hover {
+  background-color: #622d7f;
 }
