@@ -29,7 +29,7 @@ const LoginPopup = ({ onClose, pageType }) => {
     // const handleadminCredentialInputChange = (event) => {
     //     setAdminCredential(event.target.value);
     // };
-
+    
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
@@ -51,6 +51,14 @@ const LoginPopup = ({ onClose, pageType }) => {
             setShowWrongPasswordMessage(true);
         }
     }
+
+    // Used for the assignment // will most likely not keep in the page
+    const wrongPasswordMessageElement = showWrongPasswordMessage && React.createElement(
+        'div',
+        { className: 'wrong-password-message' },
+        React.createElement('div', null, 'ACCOUNT NOT FOUND'),
+        React.createElement('div', null, 'Username or Password Incorrect')
+    );
 
     return (
         <div className="overlay">
@@ -84,12 +92,8 @@ const LoginPopup = ({ onClose, pageType }) => {
                     </span>
                 </div> 
 
-                {showWrongPasswordMessage && 
-                    <div className="wrong-password-message">
-                        <div>ACCOUNT NOT FOUND</div>
-                        <div>Username or Password Incorrect</div>
-                    </div>
-                }
+                {/* DISPLAYS AN ERROR TO USER */}
+                {wrongPasswordMessageElement}
 
                 {/* ADMIN TOGGLE PAGE
                 {adminVisible &&
