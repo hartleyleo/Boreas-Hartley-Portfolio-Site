@@ -208,6 +208,18 @@ h2 {
   }
 }
 
+@keyframes wave {
+  0% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+  100% {
+    transform: rotate(-1deg);
+  }
+}
+
 .login-container {
   background-color: #F7F3E3;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -246,6 +258,28 @@ h2 {
   background-color: #F7F3E3;
 }
 
-.password-field {
-  
+.login-button, .close-popup-button {
+  font-size: 16px;
+  padding: 5px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #411e56;
+  width: 100px;
+  color: bisque;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.login-button:hover,
+.close-popup-button:hover {
+  background-color: #622d7f;
+  transform: scale(1.05);
+}
+
+.wrong-password-message {
+  padding: 10px;
+  color: #c31919;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
 }

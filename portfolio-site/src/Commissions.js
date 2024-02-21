@@ -13,7 +13,14 @@ const Commissions = () => {
             <button onClick={() => setLoginPopupOpen(true)}>erm</button>
             {pageView === 'user' && <UserCommission />}
 
-            {isLoginPopupOpen && <LoginPopup onClose={() => setLoginPopupOpen(false)}/>}
+            {isLoginPopupOpen && 
+            <LoginPopup 
+                onClose={() => setLoginPopupOpen(false)}
+                pageType={setPageView}
+            />}
+
+            <div className="login-container">{pageView}</div>
+            
 
         </div>
     );
