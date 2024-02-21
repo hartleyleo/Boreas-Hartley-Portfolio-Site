@@ -1,3 +1,9 @@
+/* 
+* --------------------------------------------------------------
+*                         GLOBAL STYLING
+* --------------------------------------------------------------
+*/
+
 .App {
   text-align: center;
   overflow-y: auto;
@@ -17,6 +23,14 @@
   overflow-y: auto;
   margin-top: 5%;
   margin-bottom: 5%;
+}
+
+.animated-button {
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.animated-button:hover {
+  transform: scale(1.05);
 }
 
 .navbar-container {
@@ -229,9 +243,9 @@ h2 {
 }
 
 /* 
-* --------------------------
-*  COMMISSIONS PAGE STYLING
-* --------------------------
+* --------------------------------------------------------------
+*                    COMMISSIONS PAGE STYLING
+* --------------------------------------------------------------
 */
 
 .login-container {
@@ -318,6 +332,9 @@ h2 {
   align-items: center;
   justify-content: center;
   height: 100%;
+  border: 1px solid #291931;
+  border-radius: 6px;
+  background-color: #1c1022;
 }
 
 .list-button {
@@ -407,12 +424,4 @@ h2 {
 
 .access-login-button:hover {
   background-color: #622d7f;
-}
-
-.animated-button {
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.animated-button:hover {
-  transform: scale(1.05);
 }
