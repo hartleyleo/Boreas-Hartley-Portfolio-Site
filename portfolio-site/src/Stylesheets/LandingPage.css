@@ -1,0 +1,47 @@
+.landing-page {
+    background-color: rgb(31, 23, 31);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    width: 100vw;
+}
+
+.title {
+    font-size: 4.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: bisque;
+}
+
+.prompt {
+    font-size: 1.5rem;
+    color: bisque;
+}
+
+.start-journey-button {
+    background-color: #bb7ce8;
+    color: beige;
+    font-family: serif, sans-serif;
+    font-size: 30px;
+    padding: 20px 40px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease-in-out;
+}
+
+.start-journey-button:hover {
+    background-color: #b05bec;
+    transform: scale(1.02);
+}
+
+.split-name {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
