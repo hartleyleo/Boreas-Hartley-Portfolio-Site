@@ -66,7 +66,7 @@ const GalleryCarousel = ({ image }) => {
 
         {[1, 2, 3, 4, 5, 6].map((tab) => (
           <div key={tab} className="tab-content" data-tab={tab} style={{ display: tab === activeTab ? 'block' : 'none' }}>
-            <TabContent image={image[tab - 1]} />
+            <TabContent id="tab-image" image={image[tab - 1]} />
             {tab}
           </div>
         ))}

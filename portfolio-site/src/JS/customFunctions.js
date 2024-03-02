@@ -48,16 +48,3 @@ function calculateAverageRGB(imagePath) {
 }
 
 export default calculateAverageRGB;
-
-
-
-// const image = {
-//     imagePath: "././././*.JPG", // This will be the path to the image saved in the database
-//     title: "Image title",
-//     desc: "Image Description",
-
-//     calculateAverageRGB: function(imagePath) {
-//       // Do work here
-//       // I am planning on just having this function run as the picture is uploaded into the database, so that way it doesn't have to do it dynamically everytime the image is loaded onto the page. Should make it much faster and smoother for the user. Plus performance will improve as we aren't running a O(n^2) function every time we load an image.
-//     }
-//   };
