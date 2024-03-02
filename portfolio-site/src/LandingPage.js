@@ -4,6 +4,7 @@ import chime from './Media/Audio/chime.wav'
 import landingAnimation from './JS/jQuery-LandingPage.js'
 
 import "./Stylesheets/LandingPage.css";
+
 const LandingPage = ({ open }) => {
 
     const playChime = () => {
