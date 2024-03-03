@@ -2,18 +2,22 @@ import React, { useState, useEffect } from 'react';
 import $ from 'jquery';
 
 import calculateAverageRGB from '../JS/customFunctions';
+import { loadJSON, loadXML } from '../JS/GetLoads';
 
-const TabContent = ({ image }) => {
+const titlexmldata = 'https://hartleyleo.rhody.dev/portfolio-site-v5/Data/Titles.xml';
+const descriptionjsondata = 'https://hartleyleo.rhody.dev/portfolio-site-v5/Data/Descriptions.json';
+
+const TabContent = ({ image, title, description }) => {
 
   return (
       <div>
           <img id="image-carousel-image" className="carousel-image" alt="instagram post for website" src={image} />
           <div className="gallery-info-container">
             <h1 className="gallery-info-title">
-              Title
+              { title }
             </h1>
             <div className="gallery-info-description">
-              Description
+              { description }
             </div>
           </div>
       </div>
@@ -26,6 +30,30 @@ const GalleryCarousel = ({ image }) => {
   const [activeTab, setActiveTab] = useState(1);
   const [averageRGB, setAverageRGB] = useState({ r: 255, g: 255, b: 255 });
 
+  const [titles, setTitles] = useState([]);
+  const [currentTitle, setCurrentTitle] = useState("Image 1");
+  const [descriptions, setDescriptions] = useState([]);
+  const [currentDescrip, setCurrentDescrip] = useState("Image 1 description");
+
+  useEffect(() => {
+    loadXML(titlexmldata)
+      .then(titles => {
+          console.log(titles);
+          setTitles(titles);
+      })
+      .catch(error => {
+          console.error('Error:', error);
+    });
+
+    loadJSON(descriptionjsondata)
+      .then(descriptions => {
+          setDescriptions(descriptions);
+      })
+      .catch(error => {
+          console.error('Error:', error);
+    });
+  }, []);
+
   useEffect(() => {
     // Slide animation when changing tabs
     $('.tab-content').hide();
@@ -35,9 +63,15 @@ const GalleryCarousel = ({ image }) => {
   const handleTabChange = (direction) => {
     setActiveTab((prevTab) => {
       if (direction === 'left') {
-        return prevTab > 1 ? prevTab - 1 : 6;
+        let newTab = prevTab > 1 ? prevTab - 1 : 6;
+        setCurrentTitle(titles[newTab - 1]);
+        setCurrentDescrip(descriptions[newTab - 1]);
+        return newTab;
       } else {
-        return prevTab < 6 ? prevTab + 1 : 1;
+        let newTab = prevTab < 6 ? prevTab + 1 : 1;
+        setCurrentTitle(titles[newTab - 1]);
+        setCurrentDescrip(descriptions[newTab - 1]);
+        return newTab;
       }
     });
   };
@@ -60,18 +94,17 @@ const GalleryCarousel = ({ image }) => {
   return (
     <div className="carousel-container" style={tabStyle}>
       <div className="tab">
-        <button onClick={() => handleTabChange('left')} className="Previous-Button">
+        <button onClick={() => handleTabChange('left')} className="Previous-Button" id="Previous-Button">
           ←
         </button>
 
         {[1, 2, 3, 4, 5, 6].map((tab) => (
           <div key={tab} className="tab-content" data-tab={tab} style={{ display: tab === activeTab ? 'block' : 'none' }}>
-            <TabContent id="tab-image" image={image[tab - 1]} />
-            {tab}
+            <TabContent id="tab-image" image={image[tab - 1]} title={currentTitle} description={currentDescrip}/>
           </div>
         ))}
 
-        <button onClick={() => handleTabChange('right')} className="Next-Button">
+        <button onClick={() => handleTabChange('right')} className="Next-Button" id="Next-Button">
           →
         </button>
       </div>

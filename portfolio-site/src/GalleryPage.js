@@ -7,7 +7,6 @@ import imagePath3 from './Media/Images/04.JPG';
 import imagePath4 from './Media/Images/00.JPG';
 import imagePath5 from './Media/Images/01.JPG';
 
-
 const GalleryPage = () => {
 
     return (
