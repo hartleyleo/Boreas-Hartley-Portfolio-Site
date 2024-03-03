@@ -92,7 +92,7 @@ const OwnerCommission = () => {
                 <h3>Incoming Commission Requests</h3>
                 <ul className="commission-lists">
                     {incomingCommissions.length === 0 ? (
-                        <li className="list-item">None!</li>
+                        <li id="list-item">None!</li>
                     ) : ( incomingCommissions.map((request, index) => (
                         <IncomingRequest
                             key={index}
@@ -108,7 +108,7 @@ const OwnerCommission = () => {
                 <h3>WIP Commissions</h3>
                 <ul className="commission-lists">
                     {wipCommissions.length === 0 ? (
-                        <li className="list-item">None!</li>
+                        <li id="list-item">None!</li>
                     ) : ( wipCommissions.map((commission, index) => (
                         <WIPCommission 
                             key={index}
@@ -123,7 +123,7 @@ const OwnerCommission = () => {
                 <h3>Completed Commissions</h3>
                 <ul className="commission-lists">
                     {finishedCommissions.length === 0 ? (
-                        <li className="list-item">None!</li>
+                        <li id="list-item">None!</li>
                     ) : ( finishedCommissions.map((commission, index) => (
                         <CompletedCommission
                             key={index}

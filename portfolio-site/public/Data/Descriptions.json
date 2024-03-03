@@ -1,0 +1,22 @@
+{
+    "images_descriptions": [
+        {
+            "description": "Image 1 description"
+        },
+        {
+            "description": "Image 2 description"
+        },
+        {
+            "description": "Image 3 description"
+        },
+        {
+            "description": "Image 4 description"
+        },
+        {
+            "description": "Image 5 description"
+        },
+        {
+            "description": "Image 6 description"
+        }
+    ]
+}
