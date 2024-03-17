@@ -425,3 +425,14 @@ h2 {
 .access-login-button:hover {
   background-color: #622d7f;
 }
+
+.megaphone-button {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.megaphone-button:hover {
+  transform: scale(1.15);
+}
