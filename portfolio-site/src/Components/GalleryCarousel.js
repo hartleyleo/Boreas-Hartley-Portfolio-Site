@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import $ from 'jquery';
+import SpeechButton from "./SpeechButton";
 
 import calculateAverageRGB from '../JS/customFunctions';
 import { loadJSON, loadXML } from '../JS/GetLoads';
@@ -18,6 +19,9 @@ const TabContent = ({ image, title, description }) => {
             </h1>
             <div className="gallery-info-description">
               { description }
+            </div>
+            <div>
+              <SpeechButton message={title + description}></SpeechButton>
             </div>
           </div>
       </div>
@@ -38,7 +42,6 @@ const GalleryCarousel = ({ image }) => {
   useEffect(() => {
     loadXML(titlexmldata)
       .then(titles => {
-          console.log(titles);
           setTitles(titles);
       })
       .catch(error => {
