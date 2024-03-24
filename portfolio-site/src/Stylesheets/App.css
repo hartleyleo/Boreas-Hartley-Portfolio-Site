@@ -425,3 +425,26 @@ h2 {
 .access-login-button:hover {
   background-color: #622d7f;
 }
+
+/* 404 Page */
+.not-found-page {
+  text-align: center;
+  overflow-y: auto;
+  background-color: #4d0e4d;
+  color: beige;
+  padding-top: 10%;
+  min-height: 100vh;
+}
+.emoji {
+  font-size: 60px;
+}
+
+.middle-emoji {
+  font-size: 40px;
+}
+
+.not-found-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
