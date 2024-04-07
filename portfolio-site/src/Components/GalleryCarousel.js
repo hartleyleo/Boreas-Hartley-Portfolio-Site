@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import $ from 'jquery';
 
 import calculateAverageRGB from '../JS/customFunctions';
-import { loadJSON, loadXML } from '../JS/GetLoads';
 
-const titlexmldata = 'https://hartleyleo.rhody.dev/portfolio-site-v5/Data/Titles.xml';
-const descriptionjsondata = 'https://hartleyleo.rhody.dev/portfolio-site-v5/Data/Descriptions.json';
+// Redundant - Used for assignments
+// import { loadJSON, loadXML } from '../JS/GetLoads';
+
+// const titlexmldata = 'https://hartleyleo.rhody.dev/portfolio-site-v5/Data/Titles.xml';
+// const descriptionjsondata = 'https://hartleyleo.rhody.dev/portfolio-site-v5/Data/Descriptions.json';
 
 const TabContent = ({ image, title, description }) => {
 
@@ -27,32 +29,36 @@ const TabContent = ({ image, title, description }) => {
 
 const GalleryCarousel = ({ image }) => {
   
+  console.log(image);
+
   const [activeTab, setActiveTab] = useState(1);
   const [averageRGB, setAverageRGB] = useState({ r: 255, g: 255, b: 255 });
 
-  const [titles, setTitles] = useState([]);
-  const [currentTitle, setCurrentTitle] = useState("Image 1");
-  const [descriptions, setDescriptions] = useState([]);
-  const [currentDescrip, setCurrentDescrip] = useState("Image 1 description");
+  // Redundant - Used for assignments
+  // const [titles, setTitles] = useState([]);
+  // const [currentTitle, setCurrentTitle] = useState("");
+  // const [descriptions, setDescriptions] = useState([]);
+  // const [currentDescrip, setCurrentDescrip] = useState("");
 
-  useEffect(() => {
-    loadXML(titlexmldata)
-      .then(titles => {
-          console.log(titles);
-          setTitles(titles);
-      })
-      .catch(error => {
-          console.error('Error:', error);
-    });
+  // Redundant - Used for assignments
+  // useEffect(() => {
+  //   loadXML(titlexmldata)
+  //     .then(titles => {
+  //         console.log(titles);
+  //         setTitles(titles);
+  //     })
+  //     .catch(error => {
+  //         console.error('Error:', error);
+  //   });
 
-    loadJSON(descriptionjsondata)
-      .then(descriptions => {
-          setDescriptions(descriptions);
-      })
-      .catch(error => {
-          console.error('Error:', error);
-    });
-  }, []);
+  //   loadJSON(descriptionjsondata)
+  //     .then(descriptions => {
+  //         setDescriptions(descriptions);
+  //     })
+  //     .catch(error => {
+  //         console.error('Error:', error);
+  //   });
+  // }, []);
 
   useEffect(() => {
     // Slide animation when changing tabs
@@ -64,13 +70,13 @@ const GalleryCarousel = ({ image }) => {
     setActiveTab((prevTab) => {
       if (direction === 'left') {
         let newTab = prevTab > 1 ? prevTab - 1 : 6;
-        setCurrentTitle(titles[newTab - 1]);
-        setCurrentDescrip(descriptions[newTab - 1]);
+        // setCurrentTitle(titles[newTab - 1]);
+        // setCurrentDescrip(descriptions[newTab - 1]);
         return newTab;
       } else {
         let newTab = prevTab < 6 ? prevTab + 1 : 1;
-        setCurrentTitle(titles[newTab - 1]);
-        setCurrentDescrip(descriptions[newTab - 1]);
+        // setCurrentTitle(titles[newTab - 1]);
+        // setCurrentDescrip(descriptions[newTab - 1]);
         return newTab;
       }
     });
@@ -100,7 +106,7 @@ const GalleryCarousel = ({ image }) => {
 
         {[1, 2, 3, 4, 5, 6].map((tab) => (
           <div key={tab} className="tab-content" data-tab={tab} style={{ display: tab === activeTab ? 'block' : 'none' }}>
-            <TabContent id="tab-image" image={image[tab - 1]} title={currentTitle} description={currentDescrip}/>
+            <TabContent id="tab-image" image={image[tab - 1]?.path || ""} title={image[tab - 1]?.title || ""} description={image[tab - 1]?.title || ""}/>
           </div>
         ))}
 
