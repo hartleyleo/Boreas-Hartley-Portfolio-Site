@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import validateCredentials from '../php/validation.php'
 
-const LoginPopup = ({ onClose, pageType }) => {
+const LoginPopup = ({ onClose, pageType, onLogin }) => {
     
     const [username, setUsername] = useState('');
 
@@ -42,11 +43,28 @@ const LoginPopup = ({ onClose, pageType }) => {
         onClose();
     }
 
+    // const handleLogin = async () => {
+    //     const response = await fetch('../php/login.php', {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify({ username, password })
+    //     });
+        
+    //     const data = await response.json();
+        
+    //     if (data.success) {
+    //         onLogin(username);
+    //     } else {
+    //         setShowWrongPasswordMessage(true);
+    //     }
+    // }
+
     const handleLogin = () => {
         // Fake login info for now bc no database
         if (username === 'csc372' && password === 'hartley') {
-            setPageTypeOwner();
-            closePopup();
+            // setPageTypeOwner();
+            // closePopup();
+            onLogin(username);
         }  else {
             setShowWrongPasswordMessage(true);
         }

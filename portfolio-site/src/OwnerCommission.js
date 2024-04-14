@@ -52,7 +52,7 @@ const CompletedCommission = ({request}) => {
 
 }
 
-const OwnerCommission = () => {
+const OwnerCommission = ({ user }) => {
 
     // Will be an axios call once the db is setup
     const [incomingCommissions, setIncomingCommissions] = useState([
@@ -87,6 +87,7 @@ const OwnerCommission = () => {
         <div className="owner">
             
             <h1>Owner Page</h1>
+            <h3>Welcome back, {user.user} !</h3>
 
             <div>
                 <h3>Incoming Commission Requests</h3>

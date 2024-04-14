@@ -8,9 +8,14 @@ import LandingPage from './LandingPage.js';
 import Home from './Home.js';
 import GalleryPage from './GalleryPage.js';
 import Commissions from './Commissions.js';
+import OwnerCommission from './OwnerCommission.js';
 
+import { CookiesProvider, useCookies } from 'react-cookie'
+import LoginPopup from './Components/LoginPopup.js';
 
 function App() {
+
+  const [cookies, setCookie] = useCookies(['user']);
 
   const [isLanding, setIsLanding] = useState(true);
   const [pageState, setPageState] = useState(0);
@@ -31,6 +36,10 @@ function App() {
   useEffect(() => {
     document.title = pageTitle;
   }, [pageTitle]);
+
+  const handleLoginApp = (user) => {
+    setCookie('user', user, { path: '/' });
+  }
 
   return (
     <div className="App">
@@ -56,7 +65,11 @@ function App() {
           <div className="pages">
             {pageState === 0 && (<Home />)}
             {pageState === 1 && (<GalleryPage />)}
-            {pageState === 2 && (<Commissions />)}
+            {pageState === 2 && (
+              <CookiesProvider>
+                <div>{cookies.user ? <OwnerCommission user={cookies.user} /> : <LoginPopup onLogin={handleLoginApp} />}</div>
+              </CookiesProvider>
+            )}
           </div>
 
           {/* Footer */}
