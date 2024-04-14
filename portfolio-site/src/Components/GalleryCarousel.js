@@ -28,8 +28,6 @@ const TabContent = ({ image, title, description }) => {
 }
 
 const GalleryCarousel = ({ image }) => {
-  
-  console.log(image);
 
   const [activeTab, setActiveTab] = useState(1);
   const [averageRGB, setAverageRGB] = useState({ r: 255, g: 255, b: 255 });
@@ -106,7 +104,7 @@ const GalleryCarousel = ({ image }) => {
 
         {[1, 2, 3, 4, 5, 6].map((tab) => (
           <div key={tab} className="tab-content" data-tab={tab} style={{ display: tab === activeTab ? 'block' : 'none' }}>
-            <TabContent id="tab-image" image={image[tab - 1]?.path || ""} title={image[tab - 1]?.title || ""} description={image[tab - 1]?.title || ""}/>
+            <TabContent id="tab-image" image={image[tab - 1]?.path || ""} title={image[tab - 1]?.title || ""} description={image[tab - 1]?.descrip || ""}/>
           </div>
         ))}
 
