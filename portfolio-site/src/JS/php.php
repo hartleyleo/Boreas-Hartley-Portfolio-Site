@@ -13,8 +13,7 @@
             $this->descrip = $descrip;
         }
     }
-    
-    
+
     $imageArray = [
         new Image("./Media/Images/03.JPG", "Bo & Mara", "Two of us lost in game"),
         new Image("./Media/Images/05.JPG", "Cardinality", "Sullen love"),
