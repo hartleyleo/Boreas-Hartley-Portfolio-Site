@@ -126,6 +126,8 @@ const LoginPopup = ({ onClose, pageType, onLogin }) => {
                 }
                  */}
 
+
+
                 <div className="login-button-field">
 
                     <button 
