@@ -7,10 +7,11 @@ import logo from './Media/Images/logo.png';
 import LandingPage from './LandingPage.js';
 import Home from './Home.js';
 import GalleryPage from './GalleryPage.js';
-import Commissions from './Commissions.js';
+// import Commissions from './Commissions.js';
 import OwnerCommission from './OwnerCommission.js';
+import Upload from './Components/Upload.js';
 
-import { CookiesProvider, useCookies } from 'react-cookie'
+import { CookiesProvider, useCookies } from 'react-cookie';
 import LoginPopup from './Components/LoginPopup.js';
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
             <div className="navbar-button-container">
               <button className="nav-button" onClick={() => { setPageStateHelper(1); setPageTitleHelper("Gallery") }}>Gallery</button>
               <button className="nav-button" onClick={() => { setPageStateHelper(2); setPageTitleHelper("Commisions") }}>Commissions</button>
+              <button className="nav-button" onClick={() => { setPageStateHelper(3); setPageTitleHelper("Upload") }}>Upload</button>
             </div>
           </div>
 
@@ -70,6 +72,7 @@ function App() {
                 <div>{cookies.user ? <OwnerCommission user={cookies.user} /> : <LoginPopup onLogin={handleLoginApp} />}</div>
               </CookiesProvider>
             )}
+            {pageState === 3 && (<Upload />)}
           </div>
 
           {/* Footer */}

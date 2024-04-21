@@ -1,6 +1,8 @@
 import GalleryCarousel from "./Components/GalleryCarousel.js"
 import React, { useState, useEffect } from 'react'
 
+// import calculateAverageRGB from './JS/customFunctions';
+
 const GalleryPage = () => {
 
     const [images, setImages] = useState([]);
@@ -15,14 +17,24 @@ const GalleryPage = () => {
                 const data = await response.json();
                 setImages(data);
             } catch (error) {
-                console.error('Error while fetching data :( ->', error);
+            console.error('Error while fetching data :( ->', error);
             }
         };
-
         fetchData();
     }, []);
 
-    console.log(images);
+    // Calculate average RGB after setting images
+    // let averageRGBs = [];
+
+    // for (var i = 0; i < images.length; i++) {
+    //     calculateAverageRGB(i)
+    //         .then((avgRGB) => {
+    //             averageRGBs[i] = avgRGB;
+    //         }).catch((error) => {
+    //         console.error('Error calculating average RGB:', error);
+    //     });
+    // }
+    
 
     return (
         <div className="gallery-page" >

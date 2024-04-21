@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import $ from 'jquery';
 
-import calculateAverageRGB from '../JS/customFunctions';
 
 // Redundant - Used for assignments
 // import { loadJSON, loadXML } from '../JS/GetLoads';
@@ -27,10 +26,12 @@ const TabContent = ({ image, title, description }) => {
 
 }
 
-const GalleryCarousel = ({ image }) => {
+const GalleryCarousel = ({ image, averageRGBs }) => {
 
     const [activeTab, setActiveTab] = useState(1);
     const [averageRGB, setAverageRGB] = useState({ r: 255, g: 255, b: 255 });
+
+    const totalImages = image.length;
 
     // Redundant - Used for assignments
     // const [titles, setTitles] = useState([]);
@@ -66,29 +67,19 @@ const GalleryCarousel = ({ image }) => {
 
     const handleTabChange = (direction) => {
         setActiveTab((prevTab) => {
-        if (direction === 'left') {
-            let newTab = prevTab > 1 ? prevTab - 1 : 6;
-            // setCurrentTitle(titles[newTab - 1]);
-            // setCurrentDescrip(descriptions[newTab - 1]);
-            return newTab;
-        } else {
-            let newTab = prevTab < 6 ? prevTab + 1 : 1;
-            // setCurrentTitle(titles[newTab - 1]);
-            // setCurrentDescrip(descriptions[newTab - 1]);
-            return newTab;
-        }
+            if (direction === 'left') {
+                let newTab = prevTab > 1 ? prevTab - 1 : totalImages;
+                // setCurrentTitle(titles[newTab - 1]);
+                // setCurrentDescrip(descriptions[newTab - 1]);
+                return newTab;
+            } else {
+                let newTab = prevTab < totalImages ? prevTab + 1 : 1;
+                // setCurrentTitle(titles[newTab - 1]);
+                // setCurrentDescrip(descriptions[newTab - 1]);
+                return newTab;
+            }
         });
     };
-
-    useEffect(() => {
-        calculateAverageRGB(image[activeTab - 1])
-        .then((avgRGB) => {
-            setAverageRGB(avgRGB);
-        })
-        .catch((error) => {
-            console.error('Error calculating average RGB:', error);
-        });
-    }, [activeTab, image]);
 
     let tabStyle = {
         backgroundColor: `rgb(${averageRGB.r}, ${averageRGB.g}, ${averageRGB.b})`,
@@ -103,7 +94,7 @@ const GalleryCarousel = ({ image }) => {
             </button>
 
             {image.map((imageObj, tab) => (
-                <div key={tab} className="tab-content" data-tab={tab} style={{ display: tab === activeTab ? 'block' : 'none' }}>
+                <div key={tab + 1} className="tab-content" data-tab={tab + 1} style={{ display: tab === activeTab - 1 ? 'block' : 'none' }}>
                     <TabContent
                         id="tab-image"
                         image={imageObj.link}
