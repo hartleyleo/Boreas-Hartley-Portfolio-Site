@@ -1,56 +1,40 @@
 import GalleryCarousel from "./Components/GalleryCarousel.js"
 import React, { useState, useEffect } from 'react'
 
-import imagePath2 from './Media/Images/02.JPG';
-import imagePath3 from './Media/Images/03.JPG';
-import imagePath5 from './Media/Images/05.JPG';
-import imagePath4 from './Media/Images/04.JPG';
-import imagePath0 from './Media/Images/00.JPG';
-import imagePath1 from './Media/Images/01.JPG';
+// import calculateAverageRGB from './JS/customFunctions';
 
 const GalleryPage = () => {
 
-    const [images, setImages] = useState([
-        {
-            path: imagePath3,
-            title: "Bo & Mara",
-            descrip: "Two of us lost in game",
-        },
-        {
-            path: imagePath5,
-            title: "Cardinality",
-            descrip: "Sullen love",
-        },
-        {
-            path: imagePath2,
-            title: "Abstraction",
-            descrip: "Untold stories",
-        },
-        {
-            path: imagePath4,
-            title: "Lost Lover",
-            descrip: "A feeling unwished",
-        },
-        {
-            path: imagePath0,
-            title: "Display",
-            descrip: "Those unfounded",
-        },
-        {
-            path: imagePath1,
-            title: "King Regent",
-            descrip: "Above all",
-        }
-    ]);
+    const [images, setImages] = useState([]);
 
-    // useEffect(() => {
-    //     fetch('./JS/php.php')
-    //         .then(response => response.json())
-    //         .then(jsonData => setImages(jsonData));
-    //     console.log(images)
-    // }, []);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('https://hartleyleo.rhody.dev/portfolio-site-v10/php/getImages.php');
+                if (!response.ok) {
+                    throw new Error('Something went wrong fetching the data');
+                }
+                const data = await response.json();
+                setImages(data);
+            } catch (error) {
+            console.error('Error while fetching data :( ->', error);
+            }
+        };
+        fetchData();
+    }, []);
 
+    // Calculate average RGB after setting images
+    // let averageRGBs = [];
 
+    // for (var i = 0; i < images.length; i++) {
+    //     calculateAverageRGB(i)
+    //         .then((avgRGB) => {
+    //             averageRGBs[i] = avgRGB;
+    //         }).catch((error) => {
+    //         console.error('Error calculating average RGB:', error);
+    //     });
+    // }
+    
 
     return (
         <div className="gallery-page" >
