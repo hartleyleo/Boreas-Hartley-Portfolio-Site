@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import $ from 'jquery';
-
+import SpeechButton from './SpeechButton';
 
 // Redundant - Used for assignments
 // import { loadJSON, loadXML } from '../JS/GetLoads';
@@ -20,6 +20,7 @@ const TabContent = ({ image, title, description }) => {
                 <div className="gallery-info-description">
                 { description }
                 </div>
+                <SpeechButton message={title + description}/>
             </div>
         </div>
     );

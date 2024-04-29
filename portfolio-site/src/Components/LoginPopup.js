@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import validateCredentials from '../php/validation.php'
 
-const LoginPopup = ({ onClose, pageType, onLogin }) => {
+const LoginPopup = ({ onClose, pageType, onLogin, setState, prevState }) => {
     
     const [username, setUsername] = useState('');
 
@@ -70,6 +70,10 @@ const LoginPopup = ({ onClose, pageType, onLogin }) => {
         }
     }
 
+    const handleClose = () => {
+        setState();
+    }
+
     // Used for the assignment // will most likely not keep in the page
     const wrongPasswordMessageElement = showWrongPasswordMessage && React.createElement(
         'div',
@@ -136,7 +140,7 @@ const LoginPopup = ({ onClose, pageType, onLogin }) => {
                     >
                         Login
                     </button>
-                    <button className="close-popup-button" onClick={onClose}>
+                    <button className="close-popup-button" onClick={() => setState(prevState)}>
                         Close
                     </button>
 

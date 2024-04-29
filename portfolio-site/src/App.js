@@ -69,7 +69,7 @@ function App() {
             {pageState === 1 && (<GalleryPage />)}
             {pageState === 2 && (
               <CookiesProvider>
-                <div>{cookies.user ? <OwnerCommission user={cookies.user} /> : <LoginPopup onLogin={handleLoginApp} />}</div>
+                <div>{cookies.user ? <OwnerCommission user={cookies.user} /> : <LoginPopup prevState={pageState} setState={setPageStateHelper} onLogin={handleLoginApp} />}</div>
               </CookiesProvider>
             )}
             {pageState === 3 && (<Upload />)}
