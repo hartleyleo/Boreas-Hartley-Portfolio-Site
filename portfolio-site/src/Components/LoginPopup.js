@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import validateCredentials from '../php/validation.php'
+// import validateCredentials from '../php/validation.php'
 
-const LoginPopup = ({ onClose, pageType, onLogin, setState, prevState }) => {
+const LoginPopup = ({ onLogin, setState, prevState }) => {
     
     const [username, setUsername] = useState('');
 
@@ -35,14 +35,6 @@ const LoginPopup = ({ onClose, pageType, onLogin, setState, prevState }) => {
         setShowPassword(!showPassword);
     };
 
-    const setPageTypeOwner = () => {
-        pageType('owner');
-    }
-
-    const closePopup = () => {
-        onClose();
-    }
-
     // const handleLogin = async () => {
     //     const response = await fetch('../php/login.php', {
     //         method: 'POST',
@@ -68,10 +60,6 @@ const LoginPopup = ({ onClose, pageType, onLogin, setState, prevState }) => {
         }  else {
             setShowWrongPasswordMessage(true);
         }
-    }
-
-    const handleClose = () => {
-        setState();
     }
 
     // Used for the assignment // will most likely not keep in the page

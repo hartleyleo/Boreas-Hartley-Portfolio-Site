@@ -21,8 +21,10 @@ function App() {
   const [isLanding, setIsLanding] = useState(true);
   const [pageState, setPageState] = useState(0);
   const [pageTitle, setPageTitle] = useState("Boreas");
+  const [prevState, setPrevState] = useState(0);
 
   const setPageStateHelper = (state) => {
+    setPrevState(pageState);
     setPageState(state);
   }
 
@@ -69,10 +71,39 @@ function App() {
             {pageState === 1 && (<GalleryPage />)}
             {pageState === 2 && (
               <CookiesProvider>
-                <div>{cookies.user ? <OwnerCommission user={cookies.user} /> : <LoginPopup prevState={pageState} setState={setPageStateHelper} onLogin={handleLoginApp} />}</div>
+                <div>{cookies.user ? <OwnerCommission user={cookies.user} /> : <LoginPopup setState={() => { 
+                    if (prevState === 0) {
+                      setPageTitleHelper("Home");
+                      setPageStateHelper(0);
+                    } else if (prevState === 1) {
+                      setPageTitleHelper("Gallery");
+                      setPageStateHelper(1);
+                    } else if (prevState === 2) {
+                      setPageTitleHelper("Commisions");
+                      setPageStateHelper(2);
+                    } else if (prevState === 3) {
+                      setPageTitleHelper("Upload");
+                      setPageStateHelper(3);
+                    }
+                  }} onLogin={handleLoginApp} />}</div>
               </CookiesProvider>
             )}
-            {pageState === 3 && (<Upload />)}
+            {pageState === 3 && (<Upload setState={() => { 
+                if (prevState === 0) {
+                  setPageTitleHelper("Home");
+                  setPageStateHelper(0);
+                } else if (prevState === 1) {
+                  setPageTitleHelper("Gallery");
+                  setPageStateHelper(1);
+                } else if (prevState === 2) {
+                  setPageTitleHelper("Commisions");
+                  setPageStateHelper(2);
+                } else if (prevState === 3) {
+                  setPageTitleHelper("Upload");
+                  setPageStateHelper(3);
+                }
+              }}
+            />)}
           </div>
 
           {/* Footer */}

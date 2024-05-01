@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Upload = () => {
+const Upload = ({ setState }) => {
     
     const [password, setPassword] = useState('');
     const [ID, setID] = useState(0);
@@ -164,6 +164,12 @@ const Upload = () => {
                         onClick={() => handleSubmit()}
                     >
                         Upload Entry
+                    </button>
+                    <button
+                        className="login-button"
+                        onClick={() => setState()}
+                    >
+                        Close
                     </button>
 
                 </div>
